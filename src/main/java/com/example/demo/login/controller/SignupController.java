@@ -4,13 +4,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,9 +34,9 @@ public class SignupController {
 		return radio;
 	}
 	
-//	//@ExceptionHandlerの使い方==================================================================================================================
+//	//@ExceptionHandlerの使い方(戻り値 String 正常に動作)=======================================================================================
 //	@ExceptionHandler(DataAccessException.class)
-//	public String DataAccessExceptionHandler(DataAccessException e, Model model) {
+//	public String DataAccessExceptionHandler(DataAccessException e,Model model) {
 //		//例外クラスのメッセージを登録
 //		model.addAttribute("error", "内部サーバーエラー（DB) : ExceptionHandler");
 //		//例外クラスのメッセージを登録
@@ -49,8 +45,6 @@ public class SignupController {
 //		model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
 //		return "error";
 //	}
-//		
-//	//@ExceptionHandlerの使い方=================================================================================================================
 //	@ExceptionHandler(Exception.class)
 //	public String exceptionHandler(Exception e, Model model) {
 //		//例外クラスのメッセージを登録
@@ -60,6 +54,30 @@ public class SignupController {
 //		//HTTPのエラーコード(500)を登録
 //		model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
 //		return "error";
+//	}
+	
+//	//@ExceptionHandlerの使い方(戻り値 ModelAndView　正常動作しない)============================================================================
+//	@ExceptionHandler(DataAccessException.class)
+//	public ModelAndView DataAccessExceptionHandler(DataAccessException e,ModelAndView mav) {
+//		//例外クラスのメッセージを登録
+//		mav.addObject("err", "内部サーバーエラー（DB) : ExceptionHandler");
+//		//例外クラスのメッセージを登録
+//		mav.addObject("message", "SignupControllerでDataAccessExeptionが発生しました");
+//		//HTTPのエラーコード(500)を登録
+//		mav.addObject("status", HttpStatus.INTERNAL_SERVER_ERROR);
+//		mav.setViewName("error");
+//		return mav;
+//	}
+//	@ExceptionHandler(Exception.class)
+//	public ModelAndView exceptionHandler(Exception e, ModelAndView mav) {
+//		//例外クラスのメッセージを登録
+//		mav.addObject("err", "内部サーバーエラー : ExceptionHandler");
+//		//例外クラスのメッセージを登録
+//		mav.addObject("message", "SignupControllerでExceptionが発生しました");
+//		//HTTPのエラーコード(500)を登録
+//		mav.addObject("status", HttpStatus.INTERNAL_SERVER_ERROR);
+//		mav.setViewName("error");
+//		return mav;
 //	}
 	
 	//ユーザー登録画面のGET用コントローラー======================================================================================================

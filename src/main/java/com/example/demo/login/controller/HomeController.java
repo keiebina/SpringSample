@@ -163,4 +163,12 @@ public class HomeController {
 		return new ResponseEntity<>(bytes, header, HttpStatus.OK);
 	}
 	
+	//アドミン権限専用画面のGET用メソッド========================================================================
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public ModelAndView getAdmin(ModelAndView mav) {
+		mav.addObject("contents", "login/admin :: admin_contents");
+		mav.setViewName("login/homeLayout");
+		return mav;
+	}
+	
 }
