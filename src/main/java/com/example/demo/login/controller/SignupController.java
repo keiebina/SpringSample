@@ -38,29 +38,29 @@ public class SignupController {
 		return radio;
 	}
 	
-	//@ExceptionHandlerの使い方==================================================================================================================
-	@ExceptionHandler(DataAccessException.class)
-	public String DataAccessExceptionHandler(DataAccessException e, Model model) {
-		//例外クラスのメッセージを登録
-		model.addAttribute("error", "内部サーバーエラー（DB) : ExceptionHandler");
-		//例外クラスのメッセージを登録
-		model.addAttribute("message", "SignupControllerでDataAccessExeptionが発生しました");
-		//HTTPのエラーコード(500)を登録
-		model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
-		return "error";
-	}
-		
-	//@ExceptionHandlerの使い方=================================================================================================================
-	@ExceptionHandler(Exception.class)
-	public String exceptionHandler(Exception e, Model model) {
-		//例外クラスのメッセージを登録
-		model.addAttribute("error", "内部サーバーエラー : ExceptionHandler");
-		//例外クラスのメッセージを登録
-		model.addAttribute("message", "SignupControllerでExceptionが発生しました");
-		//HTTPのエラーコード(500)を登録
-		model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
-		return "error";
-	}
+//	//@ExceptionHandlerの使い方==================================================================================================================
+//	@ExceptionHandler(DataAccessException.class)
+//	public String DataAccessExceptionHandler(DataAccessException e, Model model) {
+//		//例外クラスのメッセージを登録
+//		model.addAttribute("error", "内部サーバーエラー（DB) : ExceptionHandler");
+//		//例外クラスのメッセージを登録
+//		model.addAttribute("message", "SignupControllerでDataAccessExeptionが発生しました");
+//		//HTTPのエラーコード(500)を登録
+//		model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
+//		return "error";
+//	}
+//		
+//	//@ExceptionHandlerの使い方=================================================================================================================
+//	@ExceptionHandler(Exception.class)
+//	public String exceptionHandler(Exception e, Model model) {
+//		//例外クラスのメッセージを登録
+//		model.addAttribute("error", "内部サーバーエラー : ExceptionHandler");
+//		//例外クラスのメッセージを登録
+//		model.addAttribute("message", "SignupControllerでExceptionが発生しました");
+//		//HTTPのエラーコード(500)を登録
+//		model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR);
+//		return "error";
+//	}
 	
 	//ユーザー登録画面のGET用コントローラー======================================================================================================
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
